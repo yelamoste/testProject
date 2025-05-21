@@ -17,6 +17,7 @@ export const Greet = () => {
               </p>
               <input
                 type="text"
+                required
                 maxLength={50}
                 value={username}
                 placeholder="name"
