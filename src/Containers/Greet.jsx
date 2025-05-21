@@ -8,7 +8,7 @@ export const Greet = () => {
   return (
     <>
       {homeBtn == "NameBtn" ? (
-        <div className="flex flex-col justify-center font-silkscreen h-[40%] w-[50%] items-center self-center border-2 ">
+        <div className="flex flex-col justify-center font-silkscreen h-[100%] w-[100%] items-center self-center border-2 ">
           <div className="flex justify-items-start h-[10%] w-[100%] bg-black "></div>
           <div className="h-[90%] w-[100%] bg-amber-100 flex flex-col ">
             <p className="m-[8%]">
