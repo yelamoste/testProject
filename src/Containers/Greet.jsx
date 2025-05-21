@@ -9,10 +9,10 @@ export const Greet = () => {
     <>
       {homeBtn == "NameBtn" ? (
         <div className="flex flex-col w-[100%] h-[100%] justify-center ">
-          <div className="h-[45%] w-[50%] flex flex-col justify-center font-silkscreen items-center self-center border-2 ">
+          <div className="h-[48%] w-[50%] flex flex-col justify-center font-silkscreen items-center self-center border-2 max-md:w-[90%]">
             <div className="flex justify-items-start h-[10%] w-[100%] bg-black "></div>
-            <div className="h-[90%] w-[100%] bg-amber-100 flex flex-col ">
-              <p className="m-[8%]">
+            <div className="h-[90%] w-[100%] bg-amber-100 flex flex-col justify-center">
+              <p className="m-[5%] max-md:m-[3%] max-md:text-center">
                 Before we start the game, how would you like to be called?
               </p>
               <input
@@ -21,10 +21,10 @@ export const Greet = () => {
                 value={username}
                 placeholder="name"
                 onChange={(e) => setUsername(e.target.value)}
-                className="text-center border-2 text-purple-900 w-[90%] justify-center self-center"
+                className="text-center border-2 text-purple-900 w-[60%] h-[15%] max-md:w-[70%] max-md:m-[2%] max-md:text-[1.1rem] focus:bg-purple-400 focus:text-white focus:border-purple-950 justify-center self-center"
               />
               <button
-                className="cursor-pointer "
+                className="cursor-pointer border-2 bg-purple-950 w-[80%] h-[20%] m-[3%] self-center text-white"
                 onClick={() => setHomeBtn("HomeBtn")}
               >
                 Confirm

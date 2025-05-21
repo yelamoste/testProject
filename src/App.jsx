@@ -19,7 +19,7 @@ function App() {
         <>
           <div className="flex self-center bg-purple-950 h-[100%] w-[100%] align-middle justify-center flex-col">
             <button
-              className="*-none self-end text-gray-500 cursor-pointer hover:text-gray-50 hover:before:content-['[_'] hover:after:content-['_]'] ease-in font-silkscreen font-normal"
+              className="*-none self-end m-[5px] p-[10px] text-gray-500 cursor-pointer hover:text-gray-50 hover:before:content-['[_'] hover:after:content-['_]'] ease-in font-silkscreen font-normal"
               onClick={() => setBtnDir("StartBtn")}
             >
               close
