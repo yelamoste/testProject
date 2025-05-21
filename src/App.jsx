@@ -17,16 +17,14 @@ function App() {
         </div>
       ) : (
         <>
-          <div className="flex bg-purple-950 h-[100%] w-[100%] align-middle justify-center flex-col">
-            <div className="h-[45%] w-[50%] flex flex-col self-center">
-              <button
-                className="*-none self-end text-gray-500 cursor-pointer hover:text-gray-50 hover:before:content-['[_'] hover:after:content-['_]'] ease-in font-silkscreen font-normal"
-                onClick={() => setBtnDir("StartBtn")}
-              >
-                close
-              </button>
-              <Greet />
-            </div>
+          <div className="flex self-center bg-purple-950 h-[100%] w-[100%] align-middle justify-center flex-col">
+            <button
+              className="*-none self-end text-gray-500 cursor-pointer hover:text-gray-50 hover:before:content-['[_'] hover:after:content-['_]'] ease-in font-silkscreen font-normal"
+              onClick={() => setBtnDir("StartBtn")}
+            >
+              close
+            </button>
+            <Greet />
           </div>
         </>
       )}
