@@ -8,7 +8,10 @@ export const Greet = () => {
   // const audioRef = useRef(new Audio(btnSound));
 
   const handleClick = () => {
-    setHomeBtn("HomeBtn");
+    setTimeout(() => {
+      setHomeBtn("HomeBtn");
+    }, 1000);
+
     new Audio(btnSound).play();
   };
 
