@@ -1,9 +1,16 @@
 import { useState } from "react";
 import Home from "./Home";
+import { btnSound } from "../assets/sound/btnSound.mp3";
 
 export const Greet = () => {
   const [username, setUsername] = useState("");
   const [homeBtn, setHomeBtn] = useState("NameBtn");
+  // const audioRef = useRef(new Audio(btnSound));
+
+  const handleClick = () => {
+    setHomeBtn("HomeBtn");
+    new Audio(btnSound).play();
+  };
 
   return (
     <>
@@ -26,7 +33,7 @@ export const Greet = () => {
               />
               <button
                 className="cursor-pointer border-2 bg-purple-950 w-[80%] h-[20%] m-[3%] self-center text-white"
-                onClick={() => setHomeBtn("HomeBtn")}
+                onClick={handleClick}
               >
                 Confirm
               </button>
@@ -36,7 +43,7 @@ export const Greet = () => {
       ) : (
         <>
           <div className="flex flex-col w-[100%] h-[100%] justify-center ">
-            <Home />
+            <Home name={username} />
             <button
               className=" text-gray-500 cursor-pointer hover:text-gray-50 hover:before:content-['[_'] hover:after:content-['_]'] ease-in font-silkscreen font-normal"
               onClick={() => setHomeBtn("NameBtn")}
