@@ -2,7 +2,13 @@
 @import "tailwindcss";
 
 @theme {
+  /* FONT */
+
   --font-silkscreen: "Silkscreen", "sans-serif";
+
+  /* COLOR */
+
+  /* ANIMATION */
 
   /* ... */
 }
