@@ -10,7 +10,7 @@ export const Greet = () => {
   const handleClick = () => {
     setTimeout(() => {
       setHomeBtn("HomeBtn");
-    }, 1000);
+    }, 700);
 
     new Audio(btnSound).play();
   };
