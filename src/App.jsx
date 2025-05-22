@@ -1,8 +1,15 @@
 import { Greet } from "./Containers/Greet";
 import { React, useState } from "react";
+import navBtn from "/src/assets/sound/navBtn.mp3";
 
 function App() {
   const [btnDir, setBtnDir] = useState("StartBtn");
+  const startBtn = () => {
+    new Audio(navBtn).play();
+    setTimeout(() => {
+      setBtnDir("NameBtn");
+    }, 1000);
+  };
 
   return (
     <>
@@ -10,7 +17,7 @@ function App() {
         <div className="flex bg-purple-950 h-[100%] w-[100%] align-middle justify-center">
           <button
             className="*-none text-gray-500 cursor-pointer hover:text-gray-50 hover:before:content-['[_'] hover:after:content-['_]'] ease-in font-silkscreen font-normal "
-            onClick={() => setBtnDir("NameBtn")}
+            onClick={startBtn}
           >
             Start
           </button>

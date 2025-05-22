@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Home from "./Home";
-import { btnSound } from "../assets/sound/btnSound.mp3";
+import btnSound from "/src/assets/sound/btnSound.mp3";
 
 export const Greet = () => {
   const [username, setUsername] = useState("");
