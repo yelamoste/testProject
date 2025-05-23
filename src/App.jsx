@@ -43,7 +43,7 @@ function App() {
         </>
       )}
       <div className="bg-black text-gray-500 text-[0.9rem] flex justify-center">
-        yelamoste @ 2025 - beta version
+        yelamoste @ 2025 - pre-alpha version
       </div>
     </>
   );
