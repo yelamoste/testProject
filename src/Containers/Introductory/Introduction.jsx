@@ -27,7 +27,7 @@ const Introduction = (props) => {
     <>
       <div className="flex flex-col  bg-amber-50 border-2 w-[60%] h-[80%] max-md:w-[90%] self-center text-wrap">
         <div
-          className={`h-[100%] w-[100%] relative z-0 ${bgImage} bg-cover bg-no-repeat`}
+          className={`h-[100%] w-[100%] relative z-0 ${bgImage} bg-center bg-cover bg-no-repeat`}
         ></div>
         <div className="h-[auto] w-[50%] bottom-[15%] p-[10px] absolute z-1 justify-center self-center text-left mb-[10px] flex flex-col m-[0] rounded-[6px] bg-amber-950">
           <p></p>
