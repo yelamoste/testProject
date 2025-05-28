@@ -1,0 +1,1 @@
+export const TEXT_ANIMATION_DURATION = 1000;

@@ -1,138 +1,67 @@
-import React, { useState } from "react";
-import nextBtn from "/src/assets/sound/nextBtn.mp3";
-import { TypeAnimation } from "react-type-animation";
+import React, { useEffect, useState } from "react";
+import nextBtnSound from "/src/assets/sound/nextBtn.mp3";
+import Introduction from "./Introductory/Introduction";
+import { TEXT_ANIMATION_DURATION } from "../Constants";
 
 const Home = (props) => {
   const [nextDir, setNextDir] = useState("HomeDir");
-  const btnSound = new Audio(nextBtn).play();
+  // const [guideDir, setGuideDir] = useState("");
+  const btnSound = new Audio(nextBtnSound).play();
   const playerName = props.name;
 
-  const nextBtn1 = () => {
+  const nextBtn = (guideDir) => () => {
     setTimeout(() => {
-      setNextDir("GuideDir1");
-    }, 700);
+      setNextDir(guideDir);
+    }, TEXT_ANIMATION_DURATION);
     btnSound;
-    console.log("From home to guidedir1");
   };
-
-  const nextBtn2 = () => {
-    setTimeout(() => {
-      setNextDir("GuideDir2");
-    }, 700);
-    btnSound;
-    console.log("From guidedir1 to guidedir2");
-  };
-
-  const nextBtn3 = () => {
-    setTimeout(() => {
-      setNextDir("GuideDir3");
-    }, 700);
-    btnSound;
-    console.log("From guidedir1 to guidedir2");
-  };
-
-  const homeBtn = () => {
-    setTimeout(() => {
-      setNextDir("HomeDir");
-    }, 700);
-    btnSound;
-    console.log("From guidedir1 to home");
-  };
+  useEffect(() => {
+    console.log("Direction changed to:", nextDir);
+  }, [nextDir]);
 
   const guideTextStyles = {
     fontFamily: "var(--font-silkscreen)",
     color: "white",
-    margin: "15px",
   };
+
+  const contentMessage = `Player ${playerName}, Welcome to the Faraway Land! I'm Wysteria Oliver, a Tech Enthusiast.`;
+  const contentMessage2 = [
+    ` My life as a Tech Enthusiast is never a boring life to have, which is why I participated in an orginization called Faraday Org.`,
+    ` In order for me to get that fulfilling feeling, I need a guide.`,
+    `So, I decided that you will be my guide for my Faraway adventure. :)`,
+  ];
 
   return (
     <>
-      {nextDir == "HomeDir" ? (
-        <div className="flex flex-col bg-amber-50 border-2 w-[60%] h-[70%] max-md:w-[90%] self-center text-wrap">
-          <div className="h-[80%] w-[100%]"></div>
-          <div className="h-[20%] w-[90%] justify-center self-center mb-[10px]  rounded-[6px] bg-amber-950">
-            <TypeAnimation
-              sequence={[
-                `Player ${playerName}, Welcome to the Faraway Land`,
-                1000,
-              ]}
-              repeat={0}
-              speed={50}
-              style={guideTextStyles}
-            />
-
-            <button
-              className="z-1 w-[10%] h-[50%] border-2 rounded-[10px] cursor-pointer bg-gray-950 text-white"
-              onClick={nextBtn1}
-            >
-              Next
-            </button>
-          </div>
-        </div>
-      ) : nextDir == "GuideDir1" ? (
+      {nextDir === "HomeDir" ? (
+        <Introduction
+          bgImage="bg-[url(/src/assets/images/Faraway-bg.png)]"
+          guideTextStyles={guideTextStyles}
+          nextBtn={nextBtn("GuideDir1")}
+          playerName={playerName}
+          contentMessage={contentMessage}
+        />
+      ) : nextDir === "GuideDir1" ? (
         <>
-          <div className="flex flex-col bg-amber-50 border-2 w-[60%] h-[70%] max-md:w-[90%] self-center text-wrap">
-            <div className="h-[80%] w-[100%]"></div>
-            <div className="h-[20%] w-[90%] justify-center self-center mb-[10px]  rounded-[6px] bg-amber-950">
-              <TypeAnimation
-                sequence={[`First of all,`, 1000]}
-                repeat={0}
-                speed={50}
-                style={guideTextStyles}
-              />
-              <button
-                className="z-1 w-[10%] h-[50%] border-2 rounded-[10px] cursor-pointer bg-gray-950 text-white"
-                onClick={homeBtn}
-              >
-                Back
-              </button>
-              <button
-                className="z-1 w-[10%] h-[50%] border-2 rounded-[10px] cursor-pointer bg-gray-950 text-white"
-                onClick={nextBtn2}
-              >
-                Next
-              </button>
-            </div>
-          </div>
+          <Introduction
+            guideTextStyles={guideTextStyles}
+            contentMessage={contentMessage2}
+            nextBtn={nextBtn("GuideDir2")}
+            backBtn="true"
+            returnBtn={nextBtn("HomeDir")}
+          />
         </>
-      ) : nextDir == "GuideDir2" ? (
+      ) : nextDir === "GuideDir2" ? (
         <>
-          <div className="flex flex-col bg-amber-50 border-2 w-[60%] h-[70%] max-md:w-[90%] self-center text-wrap">
-            <div className="h-[80%] w-[100%]"></div>
-            <div className="h-[20%] w-[90%] justify-center self-center mb-[10px]  rounded-[6px] bg-amber-950">
-              {/* <p></p> */}
-              <TypeAnimation
-                sequence={[`Cool, so lets gosdasdasdasdasd`, 1000]}
-                repeat={0}
-                speed={50}
-                style={guideTextStyles}
-              />
-
-              <button
-                className="z-1 w-[10%] h-[50%] border-2 rounded-[10px] cursor-pointer bg-gray-950 text-white"
-                onClick={nextBtn1}
-              >
-                Back
-              </button>
-              <button
-                className="z-1 w-[10%] h-[50%] border-2 rounded-[10px] cursor-pointer bg-gray-950 text-white"
-                onClick={nextBtn3}
-              >
-                Next
-              </button>
-            </div>
-          </div>
+          <Introduction
+            contentMessage={`Let's go `}
+            guideTextStyles={guideTextStyles}
+            nextBtn={() => console.log("You’re at the final screen.")}
+            backBtn="true"
+            returnBtn={nextBtn("GuideDir1")}
+          />
         </>
-      ) : (
-        <>
-          <div className="flex flex-col bg-amber-50 border-2 w-[60%] h-[70%] max-md:w-[90%] self-center text-wrap">
-            <div className="h-[80%] w-[100%]"></div>
-            <div className="h-[20%] w-[90%] justify-center self-center mb-[10px]  rounded-[6px] bg-amber-950">
-              <p>Let's go</p>
-            </div>
-          </div>
-        </>
-      )}
+      ) : null}
     </>
   );
 };
