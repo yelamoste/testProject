@@ -11,7 +11,14 @@ const Introduction = (props) => {
   const backBtn = props.backBtn;
   const [display, setDisplay] = useState(`invisible`);
   const [showButtons, setShowBtns] = useState();
+  const typeAnimate = contentMessage.flatMap((text) => [
+    text,
+    TEXT_ANIMATION_DURATION,
+  ]);
 
+  const btnDuration = TEXT_ANIMATION_DURATION * contentMessage.length * 3;
+
+  console.log(btnDuration);
   useEffect(() => {
     if (backBtn == "true") {
       setDisplay(`visible`);
@@ -21,8 +28,8 @@ const Introduction = (props) => {
   useEffect(() => {
     setTimeout(() => {
       setShowBtns(true);
-    }, 2000);
-  }, []);
+    }, btnDuration);
+  }, [btnDuration]);
   return (
     <>
       <div className="flex flex-col  bg-amber-50 border-2 w-[60%] h-[80%] max-md:w-[90%] self-center text-wrap">
@@ -32,10 +39,11 @@ const Introduction = (props) => {
         <div className="h-[auto] w-[50%] bottom-[15%] p-[10px] absolute z-1 justify-center self-center text-left mb-[10px] flex flex-col m-[0] rounded-[6px] bg-amber-950">
           <p></p>
           <TypeAnimation
-            sequence={[`${contentMessage}`, TEXT_ANIMATION_DURATION]}
+            sequence={typeAnimate}
             complete
             repeat={0}
             speed={50}
+            omitDeletionAnimation={true}
             style={guideTextStyles}
           />
           {showButtons && (

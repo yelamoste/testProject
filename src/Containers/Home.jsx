@@ -7,7 +7,11 @@ const Home = (props) => {
   const [nextDir, setNextDir] = useState("HomeDir");
   // const [guideDir, setGuideDir] = useState("");
   const btnSound = new Audio(nextBtnSound).play();
-  const playerName = props.name;
+  let playerName = props.name;
+
+  if (!playerName) {
+    playerName = "Hero";
+  }
 
   const nextBtn = (guideDir) => () => {
     setTimeout(() => {
@@ -24,11 +28,16 @@ const Home = (props) => {
     color: "white",
   };
 
-  const contentMessage = `Player ${playerName}, Welcome to the Faraway Land! I'm Wysteria Oliver, a Tech Enthusiast.`;
+  const contentMessage = [
+    `Player ${playerName}, Welcome to the Faraway Land!`,
+    ` I'm Wysteria Oliver, a Tech Enthusiast.`,
+  ];
   const contentMessage2 = [
     ` My life as a Tech Enthusiast is never a boring life to have, which is why I participated in an orginization called Faraday Org.`,
     ` In order for me to get that fulfilling feeling, I need a guide.`,
     `So, I decided that you will be my guide for my Faraway adventure. :)`,
+    `So, ${playerName}..`,
+    `Let's go and help me figure life ahead!`,
   ];
 
   return (
@@ -49,16 +58,6 @@ const Home = (props) => {
             nextBtn={nextBtn("GuideDir2")}
             backBtn="true"
             returnBtn={nextBtn("HomeDir")}
-          />
-        </>
-      ) : nextDir === "GuideDir2" ? (
-        <>
-          <Introduction
-            contentMessage={`Let's go `}
-            guideTextStyles={guideTextStyles}
-            nextBtn={() => console.log("You’re at the final screen.")}
-            backBtn="true"
-            returnBtn={nextBtn("GuideDir1")}
           />
         </>
       ) : null}
