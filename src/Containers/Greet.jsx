@@ -7,13 +7,19 @@ export const Greet = () => {
   const [homeBtn, setHomeBtn] = useState("NameBtn");
   // const audioRef = useRef(new Audio(btnSound));
 
-  const handleClick = () => {
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      console.log("Entered");
+      handleClick();
+    }
+  };
+  function handleClick() {
     setTimeout(() => {
       setHomeBtn("HomeBtn");
     }, 700);
 
     new Audio(btnSound).play();
-  };
+  }
 
   return (
     <>
@@ -32,6 +38,7 @@ export const Greet = () => {
                 value={username}
                 placeholder="name"
                 onChange={(e) => setUsername(e.target.value)}
+                onKeyDown={handleKeyDown}
                 className="text-center border-2 text-purple-900 w-[60%] h-[15%] max-md:w-[70%] max-md:m-[2%] max-md:text-[1.1rem] focus:bg-purple-400 focus:text-white focus:border-purple-950 justify-center self-center"
               />
               <button

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import nextBtnSound from "/src/assets/sound/nextBtn.mp3";
 import Introduction from "./Introductory/Introduction";
 import { TEXT_ANIMATION_DURATION } from "../Constants";
+import { MainMenu } from "./MainMenu/MainMenu";
 
 const Home = (props) => {
   const [nextDir, setNextDir] = useState("HomeDir");
@@ -13,12 +14,16 @@ const Home = (props) => {
     playerName = "Hero";
   }
 
+  const soundDuration = TEXT_ANIMATION_DURATION - 400;
+  console.log("soundDuration: ", soundDuration);
+
   const nextBtn = (guideDir) => () => {
     setTimeout(() => {
       setNextDir(guideDir);
-    }, TEXT_ANIMATION_DURATION);
+    }, soundDuration);
     btnSound;
   };
+
   useEffect(() => {
     console.log("Direction changed to:", nextDir);
   }, [nextDir]);
@@ -49,6 +54,7 @@ const Home = (props) => {
           nextBtn={nextBtn("GuideDir1")}
           playerName={playerName}
           contentMessage={contentMessage}
+          btnText="Next"
         />
       ) : nextDir === "GuideDir1" ? (
         <>
@@ -58,9 +64,12 @@ const Home = (props) => {
             nextBtn={nextBtn("GuideDir2")}
             backBtn="true"
             returnBtn={nextBtn("HomeDir")}
+            btnText="Proceed"
           />
         </>
-      ) : null}
+      ) : (
+        <MainMenu />
+      )}
     </>
   );
 };

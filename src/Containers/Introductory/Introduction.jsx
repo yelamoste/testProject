@@ -17,6 +17,7 @@ const Introduction = (props) => {
   ]);
 
   const btnDuration = TEXT_ANIMATION_DURATION * contentMessage.length * 3;
+  const btnText = props.btnText;
 
   console.log(btnDuration);
   useEffect(() => {
@@ -32,11 +33,11 @@ const Introduction = (props) => {
   }, [btnDuration]);
   return (
     <>
-      <div className="flex flex-col  bg-amber-50 border-2 w-[60%] h-[80%] max-md:w-[90%] self-center text-wrap">
+      <div className="flex flex-col  bg-amber-50 border-2 w-[60%] h-[80%] max-md:w-[90%] max-md:h-[50%] self-center text-wrap">
         <div
           className={`h-[100%] w-[100%] relative z-0 ${bgImage} bg-center bg-cover bg-no-repeat`}
         ></div>
-        <div className="h-[auto] w-[50%] bottom-[15%] p-[10px] absolute z-1 justify-center self-center text-left mb-[10px] flex flex-col m-[0] rounded-[6px] bg-amber-950">
+        <div className="h-[auto] w-[50%] bottom-[15%] p-[20px] absolute z-1 justify-center self-center text-left mb-[10px] flex flex-col m-[0] max-md:w-[80%] max-md:bottom-[26%] max-md:text-[14px] rounded-[6px] bg-amber-950">
           <p></p>
           <TypeAnimation
             sequence={typeAnimate}
@@ -47,7 +48,7 @@ const Introduction = (props) => {
             style={guideTextStyles}
           />
           {showButtons && (
-            <div className="flex flex-row h-[40%] w-[100%]">
+            <div className="flex flex-row h-[40%] w-[calc(100% - 10px)] m-[10px] mb-0">
               <button
                 className={`z-1 w-[100%] h-[50%] border-2 self-end rounded-[10px] ${display} cursor-pointer bg-gray-950 text-white`}
                 onClick={returnBtn}
@@ -59,7 +60,7 @@ const Introduction = (props) => {
                 className="z-2 w-[100%] h-[40%] border-2 rounded-[10px] cursor-pointer self-end bg-gray-950 text-white"
                 onClick={nextBtn}
               >
-                Next
+                {btnText}
               </button>
             </div>
           )}
