@@ -32,6 +32,7 @@ const Introduction = (props) => {
       setDisplay(`visible`);
     }
   }, [backBtn]);
+
   useEffect(() => {
     const delay =
       contentMessage.id === "contMsg2" ? extraDuration : btnDuration;
@@ -62,14 +63,14 @@ const Introduction = (props) => {
           {showButtons && (
             <div className="flex flex-row h-[40%] w-[calc(100% - 10px)] m-[10px] mb-0">
               <button
-                className={`z-1 w-[100%] h-[50%] border-2 self-end rounded-[10px] ${display} cursor-pointer bg-gray-950 text-white`}
+                className={`z-1 w-[100%] h-[50%] border-2 self-end rounded-[10px] ${display} cursor-pointer bg-gray-950 text-white hover:bg-purple-900`}
                 onClick={returnBtn}
               >
                 Back
               </button>
 
               <button
-                className="z-2 w-[100%] h-[40%] border-2 rounded-[10px] cursor-pointer self-end bg-gray-950 text-white"
+                className="z-2 w-[100%] h-[40%] border-2 rounded-[10px] cursor-pointer self-end bg-gray-950 text-white hover:bg-purple-900"
                 onClick={nextBtn}
               >
                 {btnText}

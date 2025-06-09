@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Home from "./Home";
 import btnSound from "/src/assets/sound/btnSound.mp3";
 
@@ -7,13 +7,8 @@ export const Greet = () => {
   const [homeBtn, setHomeBtn] = useState("NameBtn");
   // const audioRef = useRef(new Audio(btnSound));
 
-  const handleKeyDown = (e) => {
-    if (e.key === "Enter") {
-      console.log("Entered");
-      handleClick();
-    }
-  };
   function handleClick() {
+    localStorage.setItem("name", username);
     setTimeout(() => {
       setHomeBtn("HomeBtn");
     }, 700);
@@ -21,10 +16,26 @@ export const Greet = () => {
     new Audio(btnSound).play();
   }
 
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      console.log("Entered");
+      handleClick();
+    }
+  };
+
+  useEffect(() => {
+    const tmpName = localStorage.getItem("name") || null;
+
+    if (tmpName) {
+      setUsername(tmpName);
+      handleClick();
+    }
+  }, []);
+
   return (
     <>
       {homeBtn == "NameBtn" ? (
-        <div className="flex flex-col w-[100%] h-[100%] justify-center ">
+        <div className="flex flex-col w-[100%] h-[100%] justify-center animate-bounceIn">
           <div className="h-[48%] w-[50%] flex flex-col justify-center font-silkscreen items-center self-center border-2 max-md:w-[90%]">
             <div className="flex justify-items-start h-[10%] w-[100%] bg-black "></div>
             <div className="h-[90%] w-[100%] bg-amber-100 flex flex-col justify-center">
@@ -41,6 +52,7 @@ export const Greet = () => {
                 onKeyDown={handleKeyDown}
                 className="text-center border-2 text-purple-900 w-[60%] h-[15%] max-md:w-[70%] max-md:m-[2%] max-md:text-[1.1rem] focus:bg-purple-400 focus:text-white focus:border-purple-950 justify-center self-center"
               />
+
               <button
                 className="cursor-pointer border-2 bg-purple-950 w-[80%] h-[20%] m-[3%] self-center text-white"
                 onClick={handleClick}
