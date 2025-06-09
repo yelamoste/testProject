@@ -33,17 +33,23 @@ const Home = (props) => {
     color: "white",
   };
 
-  const contentMessage = [
-    `Player ${playerName}, Welcome to the Faraway Land!`,
-    ` I'm Wysteria Oliver, a Tech Enthusiast.`,
-  ];
-  const contentMessage2 = [
-    ` My life as a Tech Enthusiast is never a boring life to have, which is why I participated in an orginization called Faraday Org.`,
-    ` In order for me to get that fulfilling feeling, I need a guide.`,
-    `So, I decided that you will be my guide for my Faraway adventure. :)`,
-    `So, ${playerName}..`,
-    `Let's go and help me figure life ahead!`,
-  ];
+  const contentMessage = {
+    id: "contMsg",
+    message: [
+      `Player ${playerName}, Welcome to the Faraway Land!`,
+      ` I'm Wysteria Oliver, a Tech Enthusiast.`,
+    ],
+  };
+  const contentMessage2 = {
+    id: "contMsg2",
+    message: [
+      ` My life as a Tech Enthusiast is never a boring life to have, which is why I participated in an orginization called Faraday Org.`,
+      ` In order for me to get that fulfilling feeling, I need a guide.`,
+      `So, I decided that you will be my guide for my Faraway adventure. :)`,
+      `So, ${playerName}..`,
+      `Let's go and help me figure life ahead!`,
+    ],
+  };
 
   return (
     <>
@@ -68,7 +74,7 @@ const Home = (props) => {
           />
         </>
       ) : (
-        <MainMenu />
+        <MainMenu playerName={playerName} />
       )}
     </>
   );
