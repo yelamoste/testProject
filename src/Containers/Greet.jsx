@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Home from "./Home";
-import btnSound from "/src/assets/sound/btnSound.mp3";
+import btnSound from "/sound/btnSound.mp3";
 
 export const Greet = () => {
   const [username, setUsername] = useState("");
@@ -31,6 +31,10 @@ export const Greet = () => {
       handleClick();
     }
   }, []);
+
+  const nameBtn = () => {
+    setHomeBtn("NameBtn");
+  };
 
   return (
     <>
@@ -65,13 +69,7 @@ export const Greet = () => {
       ) : (
         <>
           <div className="flex flex-col w-[100%] h-[100%] justify-center ">
-            <Home name={username} />
-            <button
-              className=" text-gray-500 cursor-pointer hover:text-gray-50 hover:before:content-['[_'] hover:after:content-['_]'] ease-in font-silkscreen font-normal"
-              onClick={() => setHomeBtn("NameBtn")}
-            >
-              Back
-            </button>
+            <Home name={username} nameBtn={nameBtn} />
           </div>
         </>
       )}

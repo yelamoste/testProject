@@ -1,10 +1,13 @@
 import React from "react";
 import AttributeSummary from "../../components/AttributeSummary";
+import CharacterPentagonLevel from "../../components/CharacterPentagonLevel";
 
 const CharacterAttrib = () => {
   return (
     <div className="h-[95%] w-[39%] justify-between self-center bg-gray-950 rounded-2xl origin-right animate-slideRight">
-      <div className="h-[60%] w-[100%] rounded-4xl "></div>
+      <div className="h-[60%] w-[100%] rounded-4xl ">
+        <CharacterPentagonLevel />
+      </div>
       <div className="h-[40%] w-[50%] flex flex-col self-center place-self-center justify-center">
         <AttributeSummary
           attributeName="Strength"

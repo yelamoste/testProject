@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
-import nextBtnSound from "/src/assets/sound/nextBtn.mp3";
+import nextBtnSound from "/sound/nextBtn.mp3";
 import Introduction from "./Introductory/Introduction";
 import { TEXT_ANIMATION_DURATION } from "../Constants";
-import { MainMenu } from "./MainMenu/MainMenu";
+import Chapter1 from "./Chapter1.jsx/Chapter1";
 
 const Home = (props) => {
   const [nextDir, setNextDir] = useState("HomeDir");
   // const [guideDir, setGuideDir] = useState("");
-  const btnSound = new Audio(nextBtnSound).play();
+  const sound = new Audio(nextBtnSound);
+  const btnSound = sound.play();
   let playerName = props.name;
+  const nameBtn = props.nameBtn;
 
   if (!playerName) {
     playerName = "Hero";
@@ -54,27 +56,33 @@ const Home = (props) => {
   return (
     <>
       {nextDir === "HomeDir" ? (
-        <Introduction
-          bgImage="bg-[url(/src/assets/images/Faraway-bg.png)]"
-          guideTextStyles={guideTextStyles}
-          nextBtn={nextBtn("GuideDir1")}
-          playerName={playerName}
-          contentMessage={contentMessage}
-          btnText="Next"
-        />
-      ) : nextDir === "GuideDir1" ? (
         <>
           <Introduction
+            bgImage="bg-[url(/images/Faraway-bg.webp)]"
             guideTextStyles={guideTextStyles}
-            contentMessage={contentMessage2}
-            nextBtn={nextBtn("GuideDir2")}
-            backBtn="true"
-            returnBtn={nextBtn("HomeDir")}
-            btnText="Proceed"
+            nextBtn={nextBtn("GuideDir1")}
+            playerName={playerName}
+            contentMessage={contentMessage}
+            btnText="Next"
           />
+          <button
+            className=" text-gray-500 cursor-pointer hover:text-gray-50 hover:before:content-['[_'] hover:after:content-['_]'] ease-in font-silkscreen font-normal"
+            onClick={nameBtn}
+          >
+            Back
+          </button>
         </>
+      ) : nextDir === "GuideDir1" ? (
+        <Introduction
+          guideTextStyles={guideTextStyles}
+          contentMessage={contentMessage2}
+          nextBtn={nextBtn("GuideDir2")}
+          backBtn="true"
+          returnBtn={nextBtn("HomeDir")}
+          btnText="Proceed"
+        />
       ) : (
-        <MainMenu playerName={playerName} />
+        <Chapter1 playerName={playerName} />
       )}
     </>
   );

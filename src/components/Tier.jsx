@@ -18,7 +18,7 @@ const Tier = ({ tierRanking }) => {
           S
         </a>
       ) : (
-        <div>{tierRank}</div>
+        <a>{tierRank}</a>
       )}
     </>
   );

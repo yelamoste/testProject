@@ -1,7 +1,7 @@
 import { Greet } from "./Containers/Greet";
 import { React, useState } from "react";
-import navBtn from "/src/assets/sound/navBtn.mp3";
-import btnSound from "/src/assets/sound/btnSound.mp3";
+import navBtn from "/sound/navBtn.mp3";
+import btnSound from "/sound/btnSound.mp3";
 
 function App() {
   const [btnDir, setBtnDir] = useState("StartBtn");
