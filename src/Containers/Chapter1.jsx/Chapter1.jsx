@@ -1,11 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import BirthIdentity from "./birthIdentity";
 import MainDirectory from "./MainDirectory";
 import MainMenu from "../../Containers/MainMenu/MainMenu";
 
 const Chapter1 = (props) => {
   const playerName = props.playerName;
-  const [chapDir, setChapDir] = useState("InitialInfo");
+  const finalRole = props.finalRole;
+  const selectedWorld = props.selectedWorld;
+  const birthSex = props.birthSex;
+
+  const [chapDir, setChapDir] = useState("");
+
+  useEffect(() => {
+    if (birthSex && finalRole && selectedWorld) {
+      setChapDir("MainDirectory");
+    } else {
+      setChapDir("InitialInfo");
+    }
+  }, [birthSex, finalRole, selectedWorld]);
 
   console.log(playerName);
   console.log(chapDir);
@@ -13,20 +25,31 @@ const Chapter1 = (props) => {
   const handleMenuClick = (selectedchapDir) => () => {
     setChapDir(selectedchapDir);
   };
+
+  if (!chapDir) return null;
   return (
     <>
       <div className="h-full w-full">
         {chapDir === "MainDirectory" ? (
           <>
-            <MainDirectory handleMenuClick={handleMenuClick("MainMenu")} />
+            <MainDirectory
+              handleMenuClick={handleMenuClick("MainMenu")}
+              birthSex={birthSex}
+              selectedWorld={selectedWorld}
+              finalRole={finalRole}
+              playerName={playerName}
+            />
           </>
         ) : chapDir === "MainMenu" ? (
           <MainMenu
-            playerName={playerName}
             mainBtn={handleMenuClick("MainDirectory")}
+            playerName={playerName}
+            birthSex={birthSex}
+            selectedWorld={selectedWorld}
+            finalRole={finalRole}
           />
         ) : chapDir === "InitialInfo" ? (
-          <BirthIdentity />
+          <BirthIdentity playerName={playerName} />
         ) : null}
       </div>
     </>

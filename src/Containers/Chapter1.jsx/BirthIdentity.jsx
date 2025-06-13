@@ -1,31 +1,32 @@
 import React, { useState } from "react";
 import CarouselCont from "../../components/CarouselCont";
-import MainBtn from "../../components/MainBtn";
+import BornToWhichWorld from "./BornToWhichWorld";
 
-const BirthIdentity = () => {
+const BirthIdentity = (props) => {
   // first is an option to which gender
   // the world genre they'll choose, ideally it would be best to put roulette over here so the user wouldn't have a choice which world they'll be reborn to.
   // after, will be given which role they'll play e.g. world is western or northern dukedom [noble, maid, daughter/son, cat]
-
-  const [birthSex, setBirthSex] = useState("");
+  const playerName = props.playerName;
+  const selectedWorld = props.selectedWorld;
+  const [birthSex, setBirthSex] = useState(null);
   const [birthDirectory, setBirthDirectory] = useState("BirthSex");
 
   const handleBirthBtnClick = (handleBirthBtnClick) => () => {
-    console.log(handleBirthBtnClick);
     setBirthSex(handleBirthBtnClick);
     setBirthDirectory("BornToWhichWorld");
   };
 
-  const handlePrevDir = (prevDirectory) => () => {
-    setBirthDirectory(prevDirectory);
+  const handlePrevDir = () => {
+    setBirthDirectory("BirthSex");
   };
-
+  console.log(selectedWorld);
   return (
     <>
       <div className="w-[95%] h-[95%] self-center flex justify-center bg-gray-950 place-self-center rounded-2xl">
         {birthDirectory === "BirthSex" ? (
           <>
             <div className="flex  flex-col h-full w-full justify-center">
+              {playerName}
               <p className="text-center font-semibold text-[20px] m-[10px] text-gray-400">
                 Which do you prefer to reborn as?
               </p>
@@ -45,12 +46,11 @@ const BirthIdentity = () => {
           </>
         ) : birthDirectory === "BornToWhichWorld" ? (
           <>
-            <div className="text-gray-300">{birthSex}</div>
-            <MainBtn mainBtn={handlePrevDir("BirthSex")} mainBtnName="Back" />
-          </>
-        ) : birthDirectory === "BornToWhichRole" ? (
-          <>
-            <div></div>
+            <BornToWhichWorld
+              birthSex={birthSex}
+              onBack={handlePrevDir}
+              playerName={playerName}
+            />
           </>
         ) : null}
       </div>

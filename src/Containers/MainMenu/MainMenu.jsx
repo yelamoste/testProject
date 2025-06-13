@@ -7,10 +7,14 @@ import AttributesMenu from "./AttributesMenu";
 import MapMenu from "./MapMenu";
 import ReturnBtn from "../../components/MainBtn";
 import MainBtn from "../../components/MainBtn";
+import Profile from "./Profile";
 
 const MainMenu = (props) => {
   const [display, setDisplay] = useState("Character");
   const playerName = props.playerName;
+  const birthSex = props.birthSex;
+  const selectedWorld = props.selectedWorld;
+  const finalRole = props.finalRole;
   const mainBtn = props.mainBtn;
 
   const displayBtn = (displayCont) => () => {
@@ -20,12 +24,13 @@ const MainMenu = (props) => {
   const title = "< No Title >";
 
   return (
-    <div className="w-full h-full flex flex-col">
-      <div className="flex flex-row center w-[100%] justify-evenly h-[100%] animate-fadeIn">
+    <div className="w-full h-full flex flex-col justify-center">
+      <div className="flex flex-row center w-[100%] justify-evenly h-[93%] animate-fadeIn">
         <div className="font-silkscreen h-[100%] w-[20%] bg-gray-900 rounded-2xl flex flex-col overflow-hidden">
           <MenuButton btnName="Character" display={displayBtn("Character")} />
           <MenuButton btnName="Attributes" display={displayBtn("Attributes")} />
           <MenuButton btnName="Map" display={displayBtn("Map")} />
+          <MenuButton btnName="Profile" display={displayBtn("Profile")} />
         </div>
         <div className="h-[100%] w-[78%] bg-gray-900 rounded-2xl flex flex-row">
           {display === "Character" ? (
@@ -59,7 +64,11 @@ const MainMenu = (props) => {
             </>
           ) : display === "Map" ? (
             <>
-              <MapMenu />
+              <MapMenu selectedWorld={selectedWorld} />
+            </>
+          ) : display === "Profile" ? (
+            <>
+              <Profile />
             </>
           ) : null}
         </div>
