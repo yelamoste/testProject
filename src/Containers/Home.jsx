@@ -53,6 +53,9 @@ const Home = (props) => {
     ],
   };
 
+  const skipBtn = () => {
+    setNextDir("GuideDir2");
+  };
   return (
     <>
       {nextDir === "HomeDir" ? (
@@ -65,12 +68,20 @@ const Home = (props) => {
             contentMessage={contentMessage}
             btnText="Next"
           />
-          <button
-            className=" text-gray-500 cursor-pointer hover:text-gray-50 hover:before:content-['[_'] hover:after:content-['_]'] ease-in font-silkscreen font-normal"
-            onClick={nameBtn}
-          >
-            Back
-          </button>
+          <div className="flex flex-row w-[60%] justify-evenly self-center">
+            <button
+              className=" text-gray-500 cursor-pointer hover:text-gray-50 hover:before:content-['[_'] hover:after:content-['_]'] ease-in font-silkscreen font-normal"
+              onClick={nameBtn}
+            >
+              Back
+            </button>
+            <button
+              className=" text-gray-500 cursor-pointer hover:text-gray-50 hover:before:content-['[_'] hover:after:content-['_]'] ease-in font-silkscreen font-normal"
+              onClick={skipBtn}
+            >
+              Skip
+            </button>
+          </div>
         </>
       ) : nextDir === "GuideDir1" ? (
         <Introduction
@@ -81,9 +92,9 @@ const Home = (props) => {
           returnBtn={nextBtn("HomeDir")}
           btnText="Proceed"
         />
-      ) : (
+      ) : nextDir === "GuideDir2" ? (
         <Chapter1 playerName={playerName} />
-      )}
+      ) : null}
     </>
   );
 };

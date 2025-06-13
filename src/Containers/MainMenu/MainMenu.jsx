@@ -42,7 +42,7 @@ const MainMenu = (props) => {
                     {playerName}
                   </h2>
                   <p className="text-gray-400 flex flex-row self-center justify-center text-center font-orbitron items-center content-center text-sm">
-                    <Tier tierRanking="Superior" />
+                    <Tier tierRanking="E-tier" />
                     -tier
                   </p>
                   <p className="font-orbitron text-gray-400 text-center text-sm mt-[20px]">
@@ -68,7 +68,12 @@ const MainMenu = (props) => {
             </>
           ) : display === "Profile" ? (
             <>
-              <Profile />
+              <Profile
+                selectedWorld={selectedWorld}
+                playerName={playerName}
+                finalRole={finalRole}
+                birthSex={birthSex}
+              />
             </>
           ) : null}
         </div>
