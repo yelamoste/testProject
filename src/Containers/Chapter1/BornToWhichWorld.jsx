@@ -84,11 +84,10 @@ const BornToWhichWorld = ({ onBack, birthSex, playerName }) => {
   function prevBtn() {
     onBack();
   }
-
+  console.log(playerName, birthSex);
   return (
     <div className="flex flex-col text-gray-300 justify-center w-full h-full">
       <div className="flex flex-col h-[90%] w-full justify-center">
-        {playerName} {birthSex}
         <div className="h-[60%] gap-5 w-[58%] self-center m-[20px] justify-center text-gray-300 flex flex-row">
           {cards.map((card, index) => (
             <CarouselCont

@@ -20,13 +20,15 @@ const BirthIdentity = (props) => {
     setBirthDirectory("BirthSex");
   };
   console.log(selectedWorld);
+  console.log(playerName);
+
   return (
     <>
       <div className="w-[95%] h-[95%] self-center flex justify-center bg-gray-950 place-self-center rounded-2xl">
         {birthDirectory === "BirthSex" ? (
           <>
             <div className="flex  flex-col h-full w-full justify-center">
-              {playerName}
+              {/* {playerName} */}
               <p className="text-center font-semibold text-[20px] m-[10px] text-gray-400">
                 Which do you prefer to reborn as?
               </p>

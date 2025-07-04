@@ -123,12 +123,10 @@ const BornToWhichRole = ({ selectedWorld, birthSex, playerName }) => {
     );
   }
 
+  console.log(playerName, birthSex, selectedWorld);
   return (
     <div className="flex flex-col text-gray-300 justify-center w-full h-full">
       <div className="flex flex-col h-[90%] w-full justify-center">
-        {playerName}
-        {birthSex}
-        {selectedWorld}
         <div
           className={`h-[60%] gap-5 ${
             currentRoles.length === 5 ? "w-[80%]" : "w-[58%]"
