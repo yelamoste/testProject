@@ -163,7 +163,7 @@ const BornToWhichRole = ({ selectedWorld, birthSex, playerName }) => {
           />
         )}
       </div>
-      {!finalRole && <MainBtn mainBtn={prevBtn} mainBtnName="Back" />}
+      {/* {!finalRole && <MainBtn mainBtn={prevBtn} mainBtnName="Back" />} */}
     </div>
   );
 };
