@@ -60,7 +60,7 @@ const FirstInteraction = ({ finalRole }) => {
   } else null;
 
   if (finalRole === "S-Rank Princess" || "Watcher" || "C-Ranker") {
-    additionalDescription = `Fortunately, you are reborn as ${roleName} who is capable of surviving. With that your luck is `;
+    additionalDescription = `Fortunately, you are reborn as ${roleName} who is capable of surviving. `;
   }
   console.log(defStat);
   console.log(defStat.strengthStat);
