@@ -1,0 +1,24 @@
+[
+    {
+        "saveTitle": "first_game",
+        "playerName": "amira",
+        "birthSex": "female",
+        "playerWorld": "fantasy",
+        "playerRole": "Wizard",
+        "defStat": {
+            "strength": 19,
+            "magic": 52,
+            "essence": 40,
+            "intelligence": 37,
+            "luck": 12
+        },
+        "updatedStat": {
+            "strength": null,
+            "magic": null,
+            "essence": null,
+            "intelligence": null,
+            "luck": null
+        },
+        "chapter1": true
+    }
+]

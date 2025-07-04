@@ -12,21 +12,25 @@ const SceneBg = ({ finalRole, playerName, selectedWorld, birthSex }) => {
       <div className="w-[80%] h-[80%] bg-amber-50 flex flex-col justify-center self-center">
         {selectedWorld === "Earth" ? (
           <Scenario1
+            finalRole={finalRole}
             selectedWorld={selectedWorld}
             sceneOneBgImg="bg-[url(/images/Faraway-bg.webp)]"
             world="Earth"
           />
         ) : selectedWorld === "Apocalyptic" ? (
           <Scenario1
+            finalRole={finalRole}
             selectedWorld={selectedWorld}
-            sceneOneBgImg="bg-[url(/images/images.jpg)]"
+            sceneOneBgImg="bg-gray-700"
             world="Apocalyptic"
           />
         ) : selectedWorld === "Fantasy" ? (
           <Scenario1
+            finalRole={finalRole}
             selectedWorld={selectedWorld}
-            sceneOneBgImg="bg-[url(/images/sampleimage2.jpg)]"
+            sceneOneBgImg="bg-gray-700"
             world="Fantasy"
+            playerName={playerName}
           />
         ) : null}
       </div>
