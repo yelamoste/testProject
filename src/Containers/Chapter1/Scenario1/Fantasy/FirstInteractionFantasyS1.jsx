@@ -53,7 +53,7 @@ export const FirstInteractionFantasyS1 = ({ finalRole }) => {
         missionName="First "
         description={`As a new owner of ${roleName}`}
       />
-      <div className="hidden">
+      {/* <div className="hidden">
         <MainMenu
           strengthStat={strengthStat}
           magicStat={magicStat}
@@ -61,7 +61,7 @@ export const FirstInteractionFantasyS1 = ({ finalRole }) => {
           intelligenceStat={intelligenceStat}
           luckStat={luckStat}
         />
-      </div>
+      </div> */}
     </div>
   );
 };
