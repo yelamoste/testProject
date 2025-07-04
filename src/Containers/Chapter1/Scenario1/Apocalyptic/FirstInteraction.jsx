@@ -1,4 +1,6 @@
 import React from "react";
+import Mission from "../../../../components/Mission";
+import CharacterAttrib from "../../../MainMenu/CharacterAttrib";
 
 const FirstInteraction = ({ finalRole }) => {
   let roleName = null;
