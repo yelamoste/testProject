@@ -1,5 +1,5 @@
 import React from "react";
-import Scenario1 from "./Scenario1";
+import Scenario1 from "./Scenario1.jsx";
 
 const SceneBg = ({ finalRole, playerName, selectedWorld, birthSex }) => {
   //usestate for 3 worlds, first world would be earth, apocalypse, and fantasy.

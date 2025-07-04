@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import nextBtnSound from "/sound/nextBtn.mp3";
 import Introduction from "./Introductory/Introduction";
 import { TEXT_ANIMATION_DURATION } from "../Constants";
-import Chapter1 from "./Chapter1.jsx/Chapter1";
+import Chapter1 from "./Chapter1/Chapter1";
 
 const Home = (props) => {
   const [nextDir, setNextDir] = useState("HomeDir");

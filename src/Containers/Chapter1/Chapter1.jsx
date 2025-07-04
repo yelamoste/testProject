@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import BirthIdentity from "./birthIdentity";
 import MainDirectory from "./MainDirectory";
+import BirthIdentity from "./BirthIdentity";
 import MainMenu from "../../Containers/MainMenu/MainMenu";
 
 const Chapter1 = (props) => {

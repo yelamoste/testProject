@@ -118,7 +118,8 @@ const BornToWhichWorld = ({ onBack, birthSex, playerName }) => {
           />
         )}
       </div>
-      {!selectedWorld && <MainBtn mainBtn={prevBtn} mainBtnName="Back" />}
+      {isSpinning ||
+        (!selectedWorld && <MainBtn mainBtn={prevBtn} mainBtnName="Back" />)}
     </div>
   );
 };

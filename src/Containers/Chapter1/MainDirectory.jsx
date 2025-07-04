@@ -1,4 +1,6 @@
 import React from "react";
+import MainBtn from "../../components/MainBtn";
+import SceneBg from "./Scenario1/SceneBg.jsx";
 
 const MainDirectory = ({
   handleMenuClick,

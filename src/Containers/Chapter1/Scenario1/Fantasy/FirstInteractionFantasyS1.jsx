@@ -1,7 +1,6 @@
 import React from "react";
 import Mission from "../../../../components/Mission";
 import CharacterAttrib from "../../../MainMenu/CharacterAttrib";
-import MainMenu from "../../../MainMenu/MainMenu";
 
 export const FirstInteractionFantasyS1 = ({ finalRole }) => {
   let roleName = null;
